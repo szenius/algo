@@ -1,0 +1,2 @@
+# A L G O
+These are by no mean "model answers", and I am also not looking for opportunities. I'll be adding to this repo as I try to learn fundamentals of languages which are new to me, or drill nuances of languages which I already have some knowledge of.
