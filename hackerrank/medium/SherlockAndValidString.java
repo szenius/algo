@@ -1,3 +1,7 @@
+/**
+ * https://www.hackerrank.com/challenges/sherlock-and-valid-string/problem
+ */
+
 import java.io.*;
 import java.math.*;
 import java.security.*;
