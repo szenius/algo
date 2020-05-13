@@ -11,8 +11,47 @@ Explanation:
 Found 7 regions of the same number congregated together
 '''
 
+VISITED = 'visited'
+
+
+def count_num_islands_modify_map(map):
+    '''
+    Assumes that input map can be modified
+    '''
+    count = 0
+    for i in range(len(map)):
+        for j in range(len(map[0])):
+            if map[i][j] != VISITED:
+                traverse_without_visited(map, i, j, map[i][j])
+                count += 1
+    return count
+
+def traverse_without_visited(map, i, j, island_val):
+    # Base case 1: Outside of map
+    if i < 0 or j < 0 or i >= len(map) or j >= len(map[0]):
+        return
+
+    # Base case 2: Outside of island
+    if map[i][j] != island_val:
+        return
+
+    # Base case 3: Already visited
+    if map[i][j] == VISITED:
+        return
+
+    map[i][j] = VISITED
+
+    traverse_without_visited(map, i + 1, j, island_val)  # Go down
+    traverse_without_visited(map, i - 1, j, island_val)  # Go up
+    traverse_without_visited(map, i, j + 1, island_val)  # Go right
+    traverse_without_visited(map, i, j - 1, island_val)  # Go left
+
 
 def count_num_islands(map):
+    '''
+    Assumes that input map cannot be modified
+    Use visited 2D array to keep track
+    '''
     num_rows = len(map)
     num_cols = len(map[0])
 
@@ -54,5 +93,5 @@ def traverse(map, i, j, island_val, visited):
 
 
 input = [[1, 2, 3, 3, 3], [1, 4, 4, 3, 3], [2, 3, 1, 1, 1]]
-result = count_num_islands(input)
+result = count_num_islands_modify_map(input)
 print(result)
