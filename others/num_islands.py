@@ -93,5 +93,7 @@ def traverse(map, i, j, island_val, visited):
 
 
 input = [[1, 2, 3, 3, 3], [1, 4, 4, 3, 3], [2, 3, 1, 1, 1]]
+result = count_num_islands(input)
+print(result)
 result = count_num_islands_modify_map(input)
 print(result)
